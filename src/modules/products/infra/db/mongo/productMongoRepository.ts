@@ -1,9 +1,9 @@
 import { toDomain, toMongo } from './mappers/mongoProductMapper'
-import { categoryRepository } from '~/modules/products/domain/repositories/productsRepository'
+import { IProductsRepository } from '~/modules/products/domain/repositories/productsRepository'
 import { ProductsEntity } from '~/modules/products/domain/entities/productEntity'
 import { ProductModel } from './models/products'
 
-class ProductMongoRepository implements categoryRepository {
+class ProductMongoRepository implements IProductsRepository {
   async findByName(name: string): Promise<ProductsEntity | null> {
     const product = await ProductModel.findOne({
       name,
@@ -18,10 +18,6 @@ class ProductMongoRepository implements categoryRepository {
   }
   async insert(entity: ProductsEntity): Promise<void> {
    await ProductModel.create(toMongo(entity))
-  }
-  async bulkInsert(entities: ProductsEntity[]): Promise<void> {
-    const products = entities.map(toMongo)
-    await ProductModel.insertMany(products)
   }
   async findById(id: string): Promise<ProductsEntity | null> {
     const product = await ProductModel.findOne({

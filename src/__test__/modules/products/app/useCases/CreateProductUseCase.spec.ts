@@ -1,7 +1,7 @@
 import { CreateProductUseCase, Input } from "~/modules/products/app/useCases/CreateProductUseCase";
 import { ProductsEntity } from "~/modules/products/domain/entities/productEntity";
 import { ProductTypeEnum } from "~/modules/products/domain/enums/productTypeEnum";
-import { categoryRepository } from "~/modules/products/domain/repositories/productsRepository";
+import { IProductsRepository } from "~/modules/products/domain/repositories/productsRepository";
 import { EntityAlreadyExistError } from "~/shared/errors/entityAlreadyExistError";
 
 describe('CreateProductUseCase', () => {
@@ -15,10 +15,9 @@ describe('CreateProductUseCase', () => {
       type: ProductTypeEnum.HEALTH
     };
 
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findByName: jest.fn().mockResolvedValue(null),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findById:jest.fn(),
       findAll: jest.fn(),
       update: jest.fn(),
@@ -43,10 +42,9 @@ describe('CreateProductUseCase', () => {
       type: ProductTypeEnum.HEALTH
     };
 
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findByName: jest.fn().mockResolvedValue(null),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findById:jest.fn(),
       findAll: jest.fn(),
       update: jest.fn(),
@@ -73,10 +71,9 @@ describe('CreateProductUseCase', () => {
       type: ProductTypeEnum.TECHNOLOGY
     };
 
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findByName: jest.fn().mockResolvedValue(null),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findById:jest.fn(),
       findAll: jest.fn(),
       update: jest.fn(),

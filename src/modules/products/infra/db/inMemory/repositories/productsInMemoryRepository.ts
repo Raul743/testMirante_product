@@ -1,10 +1,10 @@
 import { InMemoryRepository } from "~/base/domain/repositories/inMemoryRepository";
 import { ProductsEntity } from "../../../../domain/entities/productEntity";
-import { categoryRepository} from "../../../../domain/repositories/productsRepository";
+import { IProductsRepository} from "../../../../domain/repositories/productsRepository";
 
 export class ProductsInMemoryRepository
   extends InMemoryRepository<ProductsEntity>
-  implements categoryRepository
+  implements IProductsRepository
 {
   async findByName(name: string): Promise<ProductsEntity | null> {
     const item = this.items.find((i) => i.name === name);

@@ -1,6 +1,6 @@
 import { AllProductUseCase } from "~/modules/products/app/useCases/AllProductUseCase";
 import { ProductsEntity } from "~/modules/products/domain/entities/productEntity";
-import { categoryRepository } from "~/modules/products/domain/repositories/productsRepository";
+import { IProductsRepository } from "~/modules/products/domain/repositories/productsRepository";
 import ProductsInMemoryRepository from "~/modules/products/infra/db/inMemory/repositories/productsInMemoryRepository";
 import productMock from "../../mock/entities/productsMock";
 import { ProductTypeEnum } from "~/modules/products/domain/enums/productTypeEnum";

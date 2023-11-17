@@ -1,16 +1,15 @@
 import { DeleteProductUseCase } from "~/modules/products/app/useCases/deleteProductUseCase";
-import { categoryRepository } from "~/modules/products/domain/repositories/productsRepository";
+import { IProductsRepository } from "~/modules/products/domain/repositories/productsRepository";
 import { EntityNotFound } from "~/shared/errors/entityNotFound";
 
 describe('DeleteProductUseCase', () => {
 
   // Should delete a product successfully when given a valid product id
   it('should delete a product successfully when given a valid product id', async () => {
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockResolvedValue({ id: 'validId', isDeleted: false, delete: jest.fn() }),
       update: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),
@@ -24,11 +23,10 @@ describe('DeleteProductUseCase', () => {
 
   // Should throw an EntityNotFound error when given an invalid product id
   it('should throw an EntityNotFound error when given an invalid product id', async () => {
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockResolvedValue(null),
       update: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),
@@ -45,7 +43,6 @@ describe('DeleteProductUseCase', () => {
       findById: jest.fn().mockResolvedValue({ id: 'deletedId', isDeleted: true }),
       update: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),
@@ -58,11 +55,10 @@ describe('DeleteProductUseCase', () => {
 
   // Should throw an error if repository.findById() throws an error
   it('should throw an error if repository.findById() throws an error', async () => {
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockRejectedValue(new Error('findById error')),
       update: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),
@@ -75,11 +71,10 @@ describe('DeleteProductUseCase', () => {
 
   // Should throw an error if repository.update() throws an error
   it('should throw an error if repository.update() throws an error', async () => {
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockResolvedValue({ id: 'validId', isDeleted: false, delete: jest.fn() }),
       update: jest.fn().mockRejectedValue(new Error('update error')),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),
@@ -92,11 +87,10 @@ describe('DeleteProductUseCase', () => {
 
   // Should handle and log errors gracefully
   it('should handle and log errors gracefully', async () => {
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockRejectedValue(new Error('findById error')),
       update: jest.fn().mockRejectedValue(new Error('update error')),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),

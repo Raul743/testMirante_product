@@ -25,7 +25,6 @@ describe('FindOneProductUseCase', () => {
       delete:jest.fn(),
       findByName: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
     };
     const useCase = new FindOneProductUseCase(repositoryMock);
 
@@ -48,7 +47,6 @@ describe('FindOneProductUseCase', () => {
       delete:jest.fn(),
       findByName: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
     };
     const useCase = new FindOneProductUseCase(repositoryMock);
 
@@ -67,7 +65,6 @@ describe('FindOneProductUseCase', () => {
       delete:jest.fn(),
       findByName: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
     };
     const useCase = new FindOneProductUseCase(repositoryMock);
 
