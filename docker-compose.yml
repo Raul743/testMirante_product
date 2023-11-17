@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mirantes_product_app
+    env_file:
+      - .env
+      - .env.test
+    environment:
+      DATABASE_URL: mongodb://mirantes_product_db:${MONGO_DB_PORT}/${MONGO_DB_NAME}
+    volumes:
+      - .:/home/node/app
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mirantes_product_db
+
+  mirantes_product_db:
+    image: mongo
+    container_name: mirantes_product_db
+    ports:
+      - "${MONGO_DB_PORT}:27017"
+    volumes:
+      - ./data:/data/db
+
+volumes:
+  mongo_data:
+  cache:
+    driver: local   

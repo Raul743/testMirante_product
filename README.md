@@ -1,4 +1,4 @@
-# Best-challenge
+# Mirantes-challenge
 This repository was created to make a Product challenge, this test require make a simple api to list products, create products, update products, get one products and remove products.
 
 <br/>
@@ -63,9 +63,9 @@ Recursos disponíveis para acesso via API ou endpoints(URI):
 - **baseURL** - localhost:3000/v1/
 - **products** - /products
 
-| Método    | Descrição                         |
-| ------    | --------------------------------- |
-| `POST`    | `/products`                       |
+| Método    | Descrição                            |
+| ------    | ---------------------------------    |
+| `POST`    | `/products`                          |
 | `GET`     | `/products/{id}`                     |  
 | `GET`     | `/products`                          |   
 | `PUT`     | `/products/{id}`                     |   
@@ -80,6 +80,13 @@ Um exemplo do funcionamento das rotas.
 # Normal
 
 - Rode um yarn | npm install para baixar todas as dependências
+
+# Via DOCKER
+
+1. `docker-compose build/sudo docker-compose build` - no windows/Linux
+2. `docker-compose up -d/sudo docker-compose up -d` - Para rodar a o container em backGround
+3. `docker-compose up/docker-compose up` - Para rodar a aplicação também
+4. Rode um `docker ps/sudo docker ps` - Para verificar se os containers estão rodando
 
 
 ## Métodos

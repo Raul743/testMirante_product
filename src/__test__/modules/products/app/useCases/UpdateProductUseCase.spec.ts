@@ -1,6 +1,6 @@
 import { Input, UpdateProductUseCase } from "~/modules/products/app/useCases/UpdateProductUseCase";
 import { ProductTypeEnum } from "~/modules/products/domain/enums/productTypeEnum";
-import { categoryRepository } from "~/modules/products/domain/repositories/productsRepository";
+import { IProductsRepository } from "~/modules/products/domain/repositories/productsRepository";
 import { EntityNotFound } from "~/shared/errors/entityNotFound";
 
 describe('UpdateProductUseCase', () => {
@@ -16,7 +16,7 @@ describe('UpdateProductUseCase', () => {
       type: ProductTypeEnum.HEALTH
     };
 
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockResolvedValue({
         id: '1',
         name: 'Old Product Name',
@@ -27,7 +27,6 @@ describe('UpdateProductUseCase', () => {
       }),
       update: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),
@@ -58,7 +57,7 @@ describe('UpdateProductUseCase', () => {
       name: 'New Product Name'
     };
 
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockResolvedValue({
         id: '1',
         name: 'Old Product Name',
@@ -69,7 +68,6 @@ describe('UpdateProductUseCase', () => {
       }),
       update: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),
@@ -100,7 +98,7 @@ describe('UpdateProductUseCase', () => {
       description: 'New Product Description'
     };
 
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockResolvedValue({
         id: '1',
         name: 'Old Product Name',
@@ -111,7 +109,6 @@ describe('UpdateProductUseCase', () => {
       }),
       update: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),
@@ -142,11 +139,10 @@ describe('UpdateProductUseCase', () => {
       name: 'New Product Name'
     };
 
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockResolvedValue(null),
       update: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),
@@ -166,7 +162,7 @@ describe('UpdateProductUseCase', () => {
       name: 'Old Product Name'
     };
 
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockResolvedValue({
         id: '1',
         name: 'Old Product Name',
@@ -177,7 +173,6 @@ describe('UpdateProductUseCase', () => {
       }),
       update: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),
@@ -208,7 +203,7 @@ describe('UpdateProductUseCase', () => {
       description: "Old Product Description"
     };
 
-    const repositoryMock: categoryRepository = {
+    const repositoryMock: IProductsRepository = {
       findById: jest.fn().mockResolvedValue({
         id: '1',
         name: 'Old Product Name',
@@ -219,7 +214,6 @@ describe('UpdateProductUseCase', () => {
       }),
       update: jest.fn(),
       insert: jest.fn(),
-      bulkInsert:jest.fn(),
       findAll: jest.fn(),
       delete:jest.fn(),
       findByName:jest.fn(),

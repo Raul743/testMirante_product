@@ -1,5 +1,5 @@
 import UseCase from '~/base/app/useCases/useCase';
-import { categoryRepository } from '../../domain/repositories/productsRepository';
+import { IProductsRepository } from '../../domain/repositories/productsRepository';
 import { ProductTypeEnum } from '../../domain/enums/productTypeEnum';
 import { ProductsEntity } from '../../domain/entities/productEntity';
 import { EntityAlreadyExistError } from '~/shared/errors/entityAlreadyExistError';
@@ -12,7 +12,7 @@ export type Input = {
 };
 
 class CreateProductUseCase implements UseCase<Input, void> {
-  constructor(private readonly repository: categoryRepository) {}
+  constructor(private readonly repository: IProductsRepository) {}
   async execute(input: Input): Promise<void> {
     const productExist = await this.repository.findByName(input.name)
 
