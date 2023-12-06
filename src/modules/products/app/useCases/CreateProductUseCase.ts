@@ -13,14 +13,11 @@ export type Input = {
 
 class CreateProductUseCase implements UseCase<Input, void> {
   constructor(private readonly repository: IProductsRepository) {}
-  async execute(input: Input): Promise<void> {
+  async execute (input: Input): Promise<void> {
     const productExist = await this.repository.findByName(input.name)
+    if (productExist) throw new EntityAlreadyExistError()
 
-    if(productExist){
-      throw new EntityAlreadyExistError()
-    }
-
-    const product = new ProductsEntity(input)
+    const product = ProductsEntity.create(input)
     await this.repository.insert(product);
   }
 }
