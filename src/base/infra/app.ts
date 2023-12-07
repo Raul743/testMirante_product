@@ -7,7 +7,7 @@ import cors from 'cors';
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 
-import '../infra/configs/db/mongo';
+// import '../infra/configs/db/mongo';
 
 import { versions } from './configs/versions';
 import router from './routes';
