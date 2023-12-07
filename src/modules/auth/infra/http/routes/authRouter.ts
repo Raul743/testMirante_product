@@ -39,9 +39,7 @@ authRouter.get('/linkedin', Passport.authenticate('linkedin',
  { 
   state:'some-state-string',
   successRedirect:"/auth/login/linkedin/success"
-}
- 
- ),
+}),
 async(req, res) => {
   await LinkedinSignInFactory.handle(req, res)
 });
