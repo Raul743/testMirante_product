@@ -2,10 +2,10 @@ import { SoftDeletableEntity } from "~/base/domain/entities/softDeletableEntity"
 import { ProductTypeEnum } from "../enums/productTypeEnum"
 
 type ProductsEntityProperties = {
-  name: string,
-  description?: string | null
-  price?: number | null
-  type: ProductTypeEnum
+    name: string,
+    description?: string | null
+    price?: number | null
+    type: ProductTypeEnum
 } 
 
 class ProductsEntity extends SoftDeletableEntity<ProductsEntityProperties> {
@@ -38,7 +38,7 @@ class ProductsEntity extends SoftDeletableEntity<ProductsEntityProperties> {
     public set price(value: number | null) {
       this._price = value
     }
-
+    
     public get type() {
       return this._type
     }
@@ -46,7 +46,9 @@ class ProductsEntity extends SoftDeletableEntity<ProductsEntityProperties> {
     public set type(type: ProductTypeEnum) {
       this._type = type
     }
-  
+    static create(props: ProductsEntityProperties) {
+      return new ProductsEntity(props);
+    }
  }
 
  export { ProductsEntity, ProductsEntityProperties }

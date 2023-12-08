@@ -1,7 +1,7 @@
 import { BaseEntity } from "../entities/baseEntity";
 
 
-export interface RepositoryContract<E extends BaseEntity> {
+export interface RepositoryContract<E> {
   insert(entity: E): Promise<void>;
   findById(id: string): Promise<E | null>;
   findAll(): Promise<E[]>;

@@ -16,8 +16,7 @@ class CreateProductController {
   ) {
     const addProductValidated = await createProductValidated(request)
 
-     await this.createProductUseCase
-      .execute(addProductValidated)
+     await this.createProductUseCase.execute(addProductValidated)
 
     return response
       .status(StatusCodes.CREATED)
