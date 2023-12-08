@@ -43,6 +43,7 @@
     "passport-linkedin": "^1.0.0",
     "passport-linkedin-oauth2": "^2.0.0",
     "prettier": "^2.6.2",
+    "query-string": "^8.1.0",
     "reflect-metadata": "^0.1.13",
     "supertest": "^6.3.3",
     "swagger-ui-express": "^4.4.0",
